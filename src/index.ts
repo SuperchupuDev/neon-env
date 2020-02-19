@@ -1,5 +1,5 @@
 interface ArgInfoType {
-  type: 'number' | 'string' | 'list';
+  type: 'number' | 'string' | 'list' | 'boolean';
 }
 
 interface ArgInfoParser {
@@ -20,6 +20,7 @@ type ArgType<T extends string> =
   T extends 'number' ? number :
   T extends 'string' ? string :
   T extends 'list' ? string[] :
+  T extends 'boolean' ? boolean :
   any;
 
 type GetArgTypeInner<T extends ArgInfo> = 
@@ -72,6 +73,8 @@ export default function config<T extends Record<string, ArgInfo>>(info: T, optio
       config[key] = parseInt(value);
     } else if (argInfo.type === 'list') {
       config[key] = value.split(',');
+    } else if (argInfo.type === 'boolean') {
+      config[key] = value.toUpperCase() === 'TRUE' || value === '1';
     }
   }
 
