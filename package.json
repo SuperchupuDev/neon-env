@@ -2,6 +2,15 @@
   "name": "typed-env",
   "version": "1.0.0",
   "description": "Typed environment variable parser",
+  "keywords": [
+    "environment variables",
+    "env",
+    "parser",
+    "env parser",
+    "typescript",
+    "typed",
+    "config"
+  ],
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
