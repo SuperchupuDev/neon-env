@@ -1,0 +1,24 @@
+{
+  "name": "typed-env",
+  "version": "1.0.0",
+  "description": "Typed environment variable parser",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itslukej/typed-env.git"
+  },
+  "author": "Luke James <me@lukej.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itslukej/typed-env/issues"
+  },
+  "homepage": "https://github.com/itslukej/typed-env#readme",
+  "devDependencies": {
+    "@types/node": "^13.7.2",
+    "typescript": "^3.7.5"
+  }
+}
