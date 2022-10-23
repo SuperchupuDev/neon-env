@@ -1,0 +1,134 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "array-bracket-newline": ["error", "consistent"],
+    "arrow-body-style": ["error", "as-needed"],
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-spacing": "error",
+    "block-spacing": "error",
+    "brace-style": "error",
+    "comma-dangle": "error",
+    "comma-spacing": "error",
+    "comma-style": ["error", "last"],
+    "curly": ["error", "all"],
+    "default-case-last": "error",
+    "dot-location": ["error", "property"],
+    "dot-notation": "error",
+    "eol-last": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "func-call-spacing": ["error", "never"],
+    "keyword-spacing": "error",
+    "line-comment-position": ["error", { "position": "above" }],
+    "lines-around-comment": "error",
+    "no-alert": "error",
+    "no-case-declarations": "off",
+    "no-confusing-arrow": "error",
+    "no-duplicate-imports": ["error", { "includeExports": true }],
+    "no-else-return": ["error", { "allowElseIf": false }],
+    "no-empty-function": "error",
+    "no-extra-label": "error",
+    "no-floating-decimal": "error",
+    "no-implicit-coercion": "error",
+    "no-implied-eval": "error",
+    "no-lone-blocks": "error",
+    "no-loss-of-precision": "error",
+    "no-multi-assign": "error",
+    "no-multi-spaces": "error",
+    "no-multi-str": "error",
+    "no-multiple-empty-lines": "error",
+    "no-negated-condition": "error",
+    "no-nested-ternary": "error",
+    "no-new-wrappers": "error",
+    "no-octal-escape": "error",
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "Buffer",
+        "message": "Import Buffer from `node:buffer` instead"
+      },
+      {
+        "name": "process",
+        "message": "Import process from `node:process` instead"
+      }
+    ],
+    "no-return-await": "error",
+    "no-sequences": ["error", { "allowInParentheses": false }],
+    "no-shadow": ["off"],
+    "no-template-curly-in-string": "error",
+    "no-trailing-spaces": "error",
+    "no-undef-init": "error",
+    "no-unneeded-ternary": "error",
+    "no-unreachable-loop": "error",
+    "no-unsafe-optional-chaining": ["error", { "disallowArithmeticOperators": true }],
+    "no-useless-backreference": "error",
+    "no-useless-call": "error",
+    "no-useless-computed-key": "error",
+    "no-useless-concat": "error",
+    "no-useless-return": "error",
+    "no-var": "error",
+    "no-whitespace-before-property": "error",
+    "object-curly-newline": ["error", { "consistent": true }],
+    "object-shorthand": "error",
+    "one-var": ["error", "never"],
+    "operator-assignment": ["error", "always"],
+    "padded-blocks": ["error", "never"],
+    "prefer-arrow-callback": ["error", { "allowUnboundThis": false }],
+    "prefer-const": "error",
+    "prefer-destructuring": "error",
+    "prefer-numeric-literals": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }, { "usePrettierrc": true }],
+    "require-atomic-updates": "error",
+    "require-unicode-regexp": "error",
+    "rest-spread-spacing": ["error", "never"],
+    "semi": "error",
+    "semi-spacing": "error",
+    "semi-style": ["error", "last"],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "never",
+        "asyncArrow": "always",
+        "named": "never"
+      }
+    ],
+    "space-in-parens": ["error", "never"],
+    "space-infix-ops": "error",
+    "space-unary-ops": ["error", { "nonwords": false, "words": true }],
+    "spaced-comment": "error",
+    "switch-colon-spacing": "error",
+    "template-curly-spacing": ["error", "never"],
+    "unicode-bom": ["error", "never"],
+    "yoda": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/restrict-template-expressions": "off"
+      }
+    }
+  ]
+}

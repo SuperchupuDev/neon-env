@@ -1,14 +1,23 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "target": "es2019",
-    "sourceMap": true,
+    "target": "es2022",
+    "lib": ["esnext"],
+
+    "baseUrl": "src",
     "outDir": "dist",
-    "lib": ["es2019"],
+
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+
+    "sourceMap": true,
     "declaration": true,
-    "declarationDir": "types"
-  },
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    "pretty": true,
+    "noEmitOnError": true,
+    "strict": true
+  }
 }

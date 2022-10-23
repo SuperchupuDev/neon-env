@@ -1,7 +1,26 @@
 {
-  "name": "typed-env",
-  "version": "1.0.1",
-  "description": "Typed environment variable parser",
+  "name": "neon-env",
+  "version": "0.1.0",
+  "description": "Typed env parser",
+  "scripts": {
+    "test": "vitest run",
+    "build": "unbuild",
+    "lint": "eslint .",
+    "ts": "tsc --noEmit"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Superchupu",
+  "license": "MIT",
   "keywords": [
     "environment variables",
     "env",
@@ -11,23 +30,23 @@
     "typed",
     "config"
   ],
-  "main": "dist/index.js",
-  "types": "types/index.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itslukej/typed-env.git"
+    "url": "git+https://github.com/SuperchupuDev/neon-env.git"
   },
-  "author": "Luke James <me@lukej.me>",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itslukej/typed-env/issues"
+    "url": "https://github.com/SuperchupuDev/neon-env/issues"
   },
-  "homepage": "https://github.com/itslukej/typed-env#readme",
+  "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
-    "@types/node": "^13.7.2",
-    "typescript": "^3.7.5"
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "unbuild": "^0.9.4",
+    "vitest": "^0.24.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
