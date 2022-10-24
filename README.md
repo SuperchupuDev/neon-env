@@ -3,12 +3,20 @@
 
 A typed environment variable parser with support for choices, custom parsers, and more.
 
+## Installation
+
+**Node.js 16.0.0 or newer is required**
+
+```sh-session
+npm i neon-env
+```
+
 ## Usage
 
 ```ts
-import { config } from 'neon-env';
+import { createEnv } from 'neon-env';
 
-const env = config({
+const env = createEnv({
   PORT: { type: 'number', default: 80 }
 });
 
@@ -26,12 +34,12 @@ env.PORT // number
 
 Make sure you add `as const` after the `choices` array for maximum type safety.
 
-<warn>If you notice that it's just typed as `string` this likely means you forgot to add `as const`.</warn>
+<warn>If you notice that it's just typed as `string`, this likely means you forgot to add `as const`.</warn>
 
 ```ts
-import { config } from 'neon-env';
+import { createEnv } from 'neon-env';
 
-const env = config({
+const env = createEnv({
   NODE_ENV: {
     type: 'string',
     choices: ['development', 'production'] as const
@@ -45,9 +53,9 @@ env.NODE_ENV // 'development' | 'production'
 You can pass a `parser` function to return your own custom type
 
 ```ts
-import { config } from 'neon-env';
+import { createEnv } from 'neon-env';
 
-const env = config({
+const env = createEnv({
   HOMEPAGE: { parser: url => new URL(url) }
 });
 

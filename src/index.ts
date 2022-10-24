@@ -53,7 +53,7 @@ export interface Options {
 
 export type Config = Record<string, ArgInfo>;
 
-export function config<T extends Config>(info: T, options?: Options): ArgReturnType<T> {
+export function createEnv<T extends Config>(info: T, options?: Options): ArgReturnType<T> {
   const env = options?.env ?? process.env;
 
   const config: Record<string, unknown> = {};
@@ -62,11 +62,10 @@ export function config<T extends Config>(info: T, options?: Options): ArgReturnT
     const value = env[key];
 
     if (!value) {
-      if (!argInfo.optional) {
-        throw new Error(`Missing environment variable: ${key}`);
-      }
       if ('default' in argInfo) {
         config[key] = argInfo.default;
+      } else if (!argInfo.optional) {
+        throw new Error(`Missing environment variable: ${key}`);
       }
 
       continue;
@@ -79,7 +78,7 @@ export function config<T extends Config>(info: T, options?: Options): ArgReturnT
     }
 
     if (argInfo.choices && !argInfo.choices.includes(value)) {
-      throw new Error(`Invalid value for environment variable: ${key}`);
+      throw new TypeError(`Invalid value for ${key} environment variable: ${value}`);
     }
 
     switch (argInfo.type) {
