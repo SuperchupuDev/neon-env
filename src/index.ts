@@ -92,7 +92,7 @@ export function createEnv<T extends Config>(info: T, options?: Options): ArgRetu
         config[key] = value.toLowerCase() === 'true' || value === '1';
         break;
       case 'array':
-        config[key] = value.split(',');
+        config[key] = value.split(/, ?/gu);
         break;
     }
   }
