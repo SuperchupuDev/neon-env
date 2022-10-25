@@ -5,6 +5,7 @@
   "scripts": {
     "test": "vitest run",
     "build": "unbuild",
+    "version": "auto-changelog -p --commit-limit false && git add CHANGELOG.md",
     "lint": "eslint .",
     "ts": "tsc --noEmit"
   },
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
+    "auto-changelog": "^2.4.0",
     "eslint": "^8.26.0",
     "eslint-plugin-prettier": "^4.2.1",
     "unbuild": "^0.9.4",
