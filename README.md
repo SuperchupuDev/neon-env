@@ -34,7 +34,8 @@ env.PORT // number
 
 Make sure you add `as const` after the `choices` array for maximum type safety.
 
-<warn>If you notice that it's just typed as `string`, this likely means you forgot to add `as const`.</warn>
+> **Warning**
+> If you notice that it's just typed as `string`, this likely means you forgot to add `as const`.
 
 ```ts
 import { createEnv } from 'neon-env';
