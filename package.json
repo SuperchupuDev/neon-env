@@ -1,6 +1,6 @@
 {
   "name": "neon-env",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Typed env parser",
   "scripts": {
     "test": "vitest run",
