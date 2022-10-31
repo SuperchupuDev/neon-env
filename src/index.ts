@@ -86,7 +86,7 @@ export function createEnv<T extends Config>(info: T, options?: Options): ArgRetu
         config[key] = value;
         break;
       case 'number':
-        config[key] = Number(value);
+        config[key] = parseNumber(key, value);
         break;
       case 'boolean':
         config[key] = value.toLowerCase() === 'true' || value === '1';
@@ -98,4 +98,12 @@ export function createEnv<T extends Config>(info: T, options?: Options): ArgRetu
   }
 
   return config as ArgReturnType<T>;
+}
+
+function parseNumber(key: string, value: string): number {
+  const numberValue = Number(value);
+  if (Number.isNaN(numberValue)) {
+    throw new TypeError(`Invalid value for ${key} environment variable, should be number: ${value}`);
+  }
+  return numberValue;
 }

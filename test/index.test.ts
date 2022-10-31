@@ -43,7 +43,7 @@ describe('env', () => {
     });
   });
 
-  it('should throw with invalid values', () => {
+  it('should throw with invalid choice value', () => {
     const env = {
       TEST_STRING: 'test'
     };
@@ -56,7 +56,12 @@ describe('env', () => {
         { env }
       )
     ).toThrowError('Invalid value for TEST_STRING environment variable: test');
+  });
 
+  it('should throw with missing required field', () => {
+    const env = {
+      TEST_STRING: 'test'
+    };
     expect(() =>
       createEnv(
         {
@@ -65,5 +70,19 @@ describe('env', () => {
         { env }
       )
     ).toThrow('Missing environment variable: TEST_NUMBER');
+  });
+
+  it('should throw with invalid number', () => {
+    const env = {
+      TEST_NUMBER: '123a'
+    };
+    expect(() =>
+      createEnv(
+        {
+          TEST_NUMBER: { type: 'number' }
+        },
+        { env }
+      )
+    ).toThrow('Invalid value for TEST_NUMBER environment variable, should be number: 123a');
   });
 });
