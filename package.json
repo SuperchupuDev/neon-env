@@ -45,7 +45,7 @@
     "auto-changelog": "^2.4.0",
     "eslint": "^8.26.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "unbuild": "^0.9.4",
+    "unbuild": "^1.0.2",
     "vitest": "^0.24.3"
   },
   "engines": {
