@@ -40,9 +40,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Register Problem Matcher
-        run: echo "##[add-matcher].github/tsc.json"
-
       - name: Run TypeScript compiler
         run: npm run ts
 
