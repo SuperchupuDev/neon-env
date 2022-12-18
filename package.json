@@ -6,6 +6,7 @@
     "test": "vitest run",
     "build": "unbuild",
     "version": "auto-changelog -p --commit-limit false && git add CHANGELOG.md",
+    "postversion": "git tag -d v%npm_package_version% && git tag %npm_package_version%",
     "lint": "eslint .",
     "ts": "tsc --noEmit"
   },
@@ -40,13 +41,13 @@
   },
   "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "auto-changelog": "^2.4.0",
-    "eslint": "^8.26.0",
+    "eslint": "^8.30.0",
     "eslint-plugin-prettier": "^4.2.1",
     "unbuild": "^1.0.2",
-    "vitest": "^0.24.3"
+    "vitest": "^0.24.5"
   },
   "engines": {
     "node": "^14.18 || >=16.0.0"
