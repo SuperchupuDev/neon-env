@@ -6,7 +6,7 @@ A typed environment variable parser with support for choices, custom parsers, an
 
 ## Installation
 
-> Node.js ^14.8.0, v16 or newer is required. [See issue #1](https://github.com/SuperchupuDev/neon-env/issues/1#issuecomment-1296366710).
+> Node.js ^14.18.0, v16 or newer is required. [See issue #1](https://github.com/SuperchupuDev/neon-env/issues/1#issuecomment-1296366710).
 
 ```sh-session
 npm i neon-env
