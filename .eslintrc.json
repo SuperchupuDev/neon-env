@@ -9,7 +9,8 @@
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint"],
+  "ignorePatterns": ["node_modules", "dist"],
   "rules": {
     "array-bracket-newline": ["error", "consistent"],
     "arrow-body-style": ["error", "as-needed"],
@@ -89,7 +90,6 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }, { "usePrettierrc": true }],
     "require-atomic-updates": "error",
     "require-unicode-regexp": "error",
     "rest-spread-spacing": ["error", "never"],

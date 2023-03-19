@@ -53,7 +53,7 @@ export interface Options {
 
 export type Config = Record<string, ArgInfo>;
 
-export function createEnv<T extends Config>(info: T, options?: Options): ArgReturnType<T> {
+export function createEnv<const T extends Config>(info: T, options?: Options): ArgReturnType<T> {
   const env = options?.env ?? process.env;
 
   const config: Record<string, unknown> = {};

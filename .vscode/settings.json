@@ -1,11 +1,10 @@
 {
-  "eslint.probe": [
-    "javascript",
-    "typescript"
-  ],
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": false
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

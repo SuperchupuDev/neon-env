@@ -1,3 +1,4 @@
+import process from 'node:process';
 import { describe, expect, it } from 'vitest';
 import { createEnv } from '../src/index.js';
 
@@ -43,6 +44,23 @@ describe('env', () => {
     });
   });
 
+  it('should work with choices', () => {
+    const env = {
+      TEST_ENV: 'production'
+    };
+
+    const result = createEnv(
+      {
+        TEST_ENV: { type: 'string', choices: ['production', 'development'] }
+      },
+      { env }
+    );
+
+    expect(result).toEqual({
+      TEST_ENV: 'production'
+    });
+  });
+
   it('should throw with invalid choice value', () => {
     const env = {
       TEST_STRING: 'test'
@@ -51,7 +69,7 @@ describe('env', () => {
     expect(() =>
       createEnv(
         {
-          TEST_STRING: { type: 'string', choices: ['hello', 'hi'] as const }
+          TEST_STRING: { type: 'string', choices: ['hello', 'hi'] }
         },
         { env }
       )
@@ -84,5 +102,38 @@ describe('env', () => {
         { env }
       )
     ).toThrow('Invalid value for TEST_NUMBER environment variable, should be number: 123a');
+  });
+
+  it('should work with a custom parser', () => {
+    const env = {
+      TEST_STRING: 'test'
+    };
+
+    const result = createEnv(
+      {
+        TEST_STRING: {
+          parser(value) {
+            return value.toUpperCase();
+          }
+        }
+      },
+      { env }
+    );
+
+    expect(result).toEqual({
+      TEST_STRING: 'TEST'
+    });
+  });
+
+  it('should work with process.env', () => {
+    process.env.TEST_STRING = 'test';
+
+    const result = createEnv({
+      TEST_STRING: { type: 'string' }
+    });
+
+    expect(result).toEqual({
+      TEST_STRING: 'test'
+    });
   });
 });
