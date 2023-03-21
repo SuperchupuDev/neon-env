@@ -10,7 +10,7 @@
     "check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "ts": "tsc --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
