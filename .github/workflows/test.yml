@@ -10,73 +10,64 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node v18
-        uses: actions/setup-node@v3
+      - name: Install Node v20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: npm
+          node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        uses: ./.github/actions/pnpm
 
       - name: Run ESLint
-        run: npm run lint
+        run: pnpm run lint
 
-  prettier:
-    name: Prettier
+  biome:
+    name: Biome
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node v18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run Prettier
-        run: npm run check
+      - name: Run Biome
+        run: biome ci .
 
   typescript:
     name: TypeScript
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node v18
-        uses: actions/setup-node@v3
+      - name: Install Node v20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: npm
+          node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        uses: ./.github/actions/pnpm
 
       - name: Run TypeScript compiler
-        run: npm run typecheck
+        run: pnpm run typecheck
 
   vitest:
     name: Vitest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node v18
-        uses: actions/setup-node@v3
+      - name: Install Node v20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: npm
+          node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        uses: ./.github/actions/pnpm
 
       - name: Run Vitest
-        run: npm test
+        run: pnpm run test

@@ -34,8 +34,8 @@ type Mutable<T> = { -readonly [P in keyof T]: T[P] };
 type GetArgTypeInner<T extends ArgInfo> = T extends ArgInfoParser
   ? ReturnType<T['parser']>
   : T extends ArgInfoType
-  ? MappedArgType<Mutable<T['choices']>>[T['type']]
-  : never;
+    ? MappedArgType<Mutable<T['choices']>>[T['type']]
+    : never;
 
 type GetArgTypeOptional<T extends ArgInfo> = T extends ArgInfoDefault ? T['default'] : undefined;
 

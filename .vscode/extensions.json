@@ -1,12 +1,12 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "github.vscode-pull-request-github",
-    "codezombiech.gitignore",
-    "eamodio.gitlens",
+    "biomejs.biome",
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
+    "codezombiech.gitignore",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
     "zixuanchen.vitest-explorer"
   ]
 }
