@@ -10,8 +10,7 @@
     "check": "biome format .",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
-    "version": "auto-changelog -p --commit-limit false && git add CHANGELOG.md",
-    "postversion": "git tag -d v%npm_package_version% && git tag %npm_package_version%"
+    "changelog": "auto-changelog -p --commit-limit false"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -45,17 +44,21 @@
   "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.5.3",
-    "@types/node": "^20.11.19",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^7.0.1",
+    "@types/node": "^20.11.20",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "auto-changelog": "^2.4.0",
     "eslint": "^8.56.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
-    "vitest": "^1.3.0"
+    "vitest": "^1.3.1"
   },
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   },
   "packageManager": "pnpm@8.15.3"
 }

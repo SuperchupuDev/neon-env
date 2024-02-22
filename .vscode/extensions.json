@@ -7,6 +7,6 @@
     "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
     "github.vscode-pull-request-github",
-    "zixuanchen.vitest-explorer"
+    "vitest.explorer"
   ]
 }
