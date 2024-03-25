@@ -1,10 +1,7 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "defaultBranch": "main",
-    "useIgnoreFile": true
+  "$schema": "https://biomejs.dev/schemas/1.6.2/schema.json",
+  "files": {
+    "ignore": ["package.json"]
   },
   "formatter": {
     "indentStyle": "space",
@@ -23,6 +20,12 @@
     "enabled": false
   },
   "organizeImports": {
-    "enabled": false
+    "enabled": true
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "useIgnoreFile": true
   }
 }
