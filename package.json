@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "description": "Typed env parser",
   "scripts": {
-    "test": "vitest run",
+    "test": "node --import tsx --test test/*.test.ts",
     "build": "tsup",
     "check": "biome check .",
     "check:apply": "biome check --apply .",
@@ -44,15 +44,15 @@
   },
   "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.6.2",
-    "@types/node": "^20.11.30",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@biomejs/biome": "^1.6.4",
+    "@types/node": "^20.12.3",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "auto-changelog": "^2.4.0",
     "eslint": "^8.57.0",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.3",
-    "vitest": "^1.4.0"
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.4"
   },
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
@@ -61,5 +61,5 @@
     "access": "public",
     "provenance": true
   },
-  "packageManager": "pnpm@8.15.5"
+  "packageManager": "pnpm@8.15.6"
 }

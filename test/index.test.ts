@@ -1,9 +1,10 @@
+import assert from 'node:assert/strict';
 import process from 'node:process';
-import { describe, expect, it } from 'vitest';
+import { describe, it } from 'node:test';
 import { createEnv } from '../src/index.js';
 
-describe('env', () => {
-  it('should work', () => {
+void describe('env', async () => {
+  await it('should work', () => {
     const env = {
       TEST_STRING: 'test',
       TEST_NUMBER: '123',
@@ -31,7 +32,7 @@ describe('env', () => {
       { env }
     );
 
-    expect(result).toEqual({
+    assert.deepEqual(result, {
       TEST_STRING: 'test',
       TEST_STRING_DEFAULT: 'default',
       TEST_NUMBER: 123,
@@ -44,7 +45,7 @@ describe('env', () => {
     });
   });
 
-  it('should work with choices', () => {
+  await it('should work with choices', () => {
     const env = {
       TEST_ENV: 'production'
     };
@@ -56,55 +57,61 @@ describe('env', () => {
       { env }
     );
 
-    expect(result).toEqual({
+    assert.deepEqual(result, {
       TEST_ENV: 'production'
     });
   });
 
-  it('should throw with invalid choice value', () => {
+  await it('should throw with invalid choice value', () => {
     const env = {
       TEST_STRING: 'test'
     };
 
-    expect(() =>
-      createEnv(
-        {
-          TEST_STRING: { type: 'string', choices: ['hello', 'hi'] }
-        },
-        { env }
-      )
-    ).toThrowError('Invalid value for TEST_STRING environment variable: test');
+    assert.throws(
+      () =>
+        createEnv(
+          {
+            TEST_STRING: { type: 'string', choices: ['hello', 'hi'] }
+          },
+          { env }
+        ),
+      new TypeError('Invalid value for TEST_STRING environment variable: test')
+    );
   });
 
-  it('should throw with missing required field', () => {
+  await it('should throw with missing required field', () => {
     const env = {
       TEST_STRING: 'test'
     };
-    expect(() =>
-      createEnv(
-        {
-          TEST_NUMBER: { type: 'number' }
-        },
-        { env }
-      )
-    ).toThrow('Missing environment variable: TEST_NUMBER');
+    assert.throws(
+      () =>
+        createEnv(
+          {
+            TEST_NUMBER: { type: 'number' }
+          },
+          { env }
+        ),
+      new Error('Missing environment variable: TEST_NUMBER')
+    );
   });
 
-  it('should throw with invalid number', () => {
+  await it('should throw with invalid number', () => {
     const env = {
       TEST_NUMBER: '123a'
     };
-    expect(() =>
-      createEnv(
-        {
-          TEST_NUMBER: { type: 'number' }
-        },
-        { env }
-      )
-    ).toThrow('Invalid value for TEST_NUMBER environment variable, should be number: 123a');
+    assert.throws(
+      () =>
+        createEnv(
+          {
+            TEST_NUMBER: { type: 'number' }
+          },
+          { env }
+        ),
+      new TypeError('Invalid value for TEST_NUMBER environment variable, should be number: 123a')
+    );
   });
 
-  it('should work with a custom parser', () => {
+  await it('should work with a custom parser', () => {
     const env = {
       TEST_STRING: 'test'
     };
@@ -120,19 +127,19 @@ describe('env', () => {
       { env }
     );
 
-    expect(result).toEqual({
+    assert.deepEqual(result, {
       TEST_STRING: 'TEST'
     });
   });
 
-  it('should work with process.env', () => {
+  await it('should work with process.env', () => {
     process.env.TEST_STRING = 'test';
 
     const result = createEnv({
       TEST_STRING: { type: 'string' }
     });
 
-    expect(result).toEqual({
+    assert.deepEqual(result, {
       TEST_STRING: 'test'
     });
   });
