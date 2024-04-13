@@ -7,6 +7,12 @@
   "editor.formatOnSave": true,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
+  "nodejs-testing.extensions": [
+    {
+      "extensions": ["ts"],
+      "parameters": ["--import", "tsx"]
+    }
+  ],
   "npm.packageManager": "pnpm",
   "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -3,8 +3,8 @@ import { createEnv } from '../src/index.js';
 
 const assertType = <T>(value: T) => value;
 
-void describe('env types', async () => {
-  await it('should infer the choice types', () => {
+describe('env types', () => {
+  it('should infer the choice types', () => {
     const env = {
       TEST_ENV: 'production'
     };

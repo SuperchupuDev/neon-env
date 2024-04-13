@@ -3,8 +3,8 @@ import process from 'node:process';
 import { describe, it } from 'node:test';
 import { createEnv } from '../src/index.js';
 
-void describe('env', async () => {
-  await it('should work', () => {
+describe('env', () => {
+  it('should work', () => {
     const env = {
       TEST_STRING: 'test',
       TEST_NUMBER: '123',
@@ -45,7 +45,7 @@ void describe('env', async () => {
     });
   });
 
-  await it('should work with choices', () => {
+  it('should work with choices', () => {
     const env = {
       TEST_ENV: 'production'
     };
@@ -62,7 +62,7 @@ void describe('env', async () => {
     });
   });
 
-  await it('should throw with invalid choice value', () => {
+  it('should throw with invalid choice value', () => {
     const env = {
       TEST_STRING: 'test'
     };
@@ -79,7 +79,7 @@ void describe('env', async () => {
     );
   });
 
-  await it('should throw with missing required field', () => {
+  it('should throw with missing required field', () => {
     const env = {
       TEST_STRING: 'test'
     };
@@ -95,7 +95,7 @@ void describe('env', async () => {
     );
   });
 
-  await it('should throw with invalid number', () => {
+  it('should throw with invalid number', () => {
     const env = {
       TEST_NUMBER: '123a'
     };
@@ -111,7 +111,7 @@ void describe('env', async () => {
     );
   });
 
-  await it('should work with a custom parser', () => {
+  it('should work with a custom parser', () => {
     const env = {
       TEST_STRING: 'test'
     };
@@ -132,7 +132,7 @@ void describe('env', async () => {
     });
   });
 
-  await it('should work with process.env', () => {
+  it('should work with process.env', () => {
     process.env.TEST_STRING = 'test';
 
     const result = createEnv({
