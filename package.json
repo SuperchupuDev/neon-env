@@ -44,7 +44,7 @@
   "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.6.4",
-    "@types/node": "^20.12.7",
+    "@types/node": "^22.0.0",
     "auto-changelog": "^2.4.0",
     "tsup": "^8.0.2",
     "tsx": "^4.7.2",
