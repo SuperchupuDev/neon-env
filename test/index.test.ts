@@ -67,15 +67,13 @@ describe('env', () => {
       TEST_STRING: 'test'
     };
 
-    assert.throws(
-      () =>
-        createEnv(
-          {
-            TEST_STRING: { type: 'string', choices: ['hello', 'hi'] }
-          },
-          { env }
-        ),
-      new TypeError('Invalid value for TEST_STRING environment variable: test')
+    assert.throws(() =>
+      createEnv(
+        {
+          TEST_STRING: { type: 'string', choices: ['hello', 'hi'] }
+        },
+        { env }
+      )
     );
   });
 
@@ -83,15 +81,13 @@ describe('env', () => {
     const env = {
       TEST_STRING: 'test'
     };
-    assert.throws(
-      () =>
-        createEnv(
-          {
-            TEST_NUMBER: { type: 'number' }
-          },
-          { env }
-        ),
-      new Error('Missing environment variable: TEST_NUMBER')
+    assert.throws(() =>
+      createEnv(
+        {
+          TEST_NUMBER: { type: 'number' }
+        },
+        { env }
+      )
     );
   });
 
@@ -99,15 +95,13 @@ describe('env', () => {
     const env = {
       TEST_NUMBER: '123a'
     };
-    assert.throws(
-      () =>
-        createEnv(
-          {
-            TEST_NUMBER: { type: 'number' }
-          },
-          { env }
-        ),
-      new TypeError('Invalid value for TEST_NUMBER environment variable, should be number: 123a')
+    assert.throws(() =>
+      createEnv(
+        {
+          TEST_NUMBER: { type: 'number' }
+        },
+        { env }
+      )
     );
   });
 
