@@ -1,13 +1,10 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.6.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "defaultBranch": "main",
     "useIgnoreFile": true
-  },
-  "files": {
-    "ignore": ["package.json"]
   },
   "formatter": {
     "indentStyle": "space",
@@ -19,7 +16,7 @@
       "arrowParentheses": "asNeeded",
       "quoteStyle": "single",
       "semicolons": "always",
-      "trailingComma": "none"
+      "trailingCommas": "none"
     }
   },
   "linter": {
@@ -37,6 +34,7 @@
         "useConsistentArrayType": "error",
         "useEnumInitializers": "off",
         "useForOf": "error",
+        "useNodeAssertStrict": "error",
         "useShorthandAssign": "error"
       },
       "suspicious": {
@@ -47,5 +45,13 @@
   },
   "organizeImports": {
     "enabled": true
-  }
+  },
+  "overrides": [
+    {
+      "include": ["package.json"],
+      "formatter": {
+        "lineWidth": 1
+      }
+    }
+  ]
 }

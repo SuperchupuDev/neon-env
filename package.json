@@ -5,12 +5,12 @@
   "scripts": {
     "build": "tsup",
     "changelog": "auto-changelog -p --commit-limit false",
-    "check": "biome check .",
-    "format": "biome format --write .",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint . --apply-unsafe",
-    "test": "node --import tsx --test test/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "check": "biome check",
+    "format": "biome format --write",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --fix --unsafe",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -44,12 +44,11 @@
   },
   "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.6.4",
-    "@types/node": "^20.12.7",
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^22.1.0",
     "auto-changelog": "^2.4.0",
-    "tsup": "^8.0.2",
-    "tsx": "^4.7.2",
-    "typescript": "^5.4.5"
+    "tsup": "^8.2.1",
+    "typescript": "^5.5.4"
   },
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
@@ -58,5 +57,5 @@
     "access": "public",
     "provenance": true
   },
-  "packageManager": "pnpm@9.5.0"
+  "packageManager": "pnpm@9.7.0"
 }

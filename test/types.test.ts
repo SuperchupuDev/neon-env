@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test';
-import { createEnv } from '../src/index.js';
+import { createEnv } from '../src/index.ts';
 
 const assertType = <T>(value: T) => value;
 

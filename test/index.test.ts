@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import process from 'node:process';
 import { describe, it } from 'node:test';
-import { createEnv } from '../src/index.js';
+import { createEnv } from '../src/index.ts';
 
 describe('env', () => {
   it('should work', () => {
@@ -60,6 +60,19 @@ describe('env', () => {
     assert.deepEqual(result, {
       TEST_ENV: 'production'
     });
+  });
+
+  it('should throw with no env', () => {
+    const env = process.env;
+    Object.defineProperty(process, 'env', { value: null });
+
+    assert.throws(() =>
+      createEnv({
+        TEST_NUMBER: { type: 'number' }
+      })
+    );
+
+    process.env = env;
   });
 
   it('should throw with invalid choice value', () => {
