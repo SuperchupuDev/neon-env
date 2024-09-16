@@ -16,7 +16,7 @@ importers:
         version: 22.1.0
       auto-changelog:
         specifier: ^2.4.0
-        version: 2.4.0
+        version: 2.5.0
       tsup:
         specifier: ^8.2.1
         version: 8.2.1(typescript@5.5.4)
@@ -358,8 +358,8 @@ packages:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
 
-  auto-changelog@2.4.0:
-    resolution: {integrity: sha512-vh17hko1c0ItsEcw6m7qPRf3m45u+XK5QyCrrBFViElZ8jnKrPC1roSznrd1fIB/0vR/zawdECCRJtTuqIXaJw==}
+  auto-changelog@2.5.0:
+    resolution: {integrity: sha512-UTnLjT7I9U2U/xkCUH5buDlp8C7g0SGChfib+iDrJkamcj5kaMqNKHNfbKJw1kthJUq8sUo3i3q2S6FzO/l/wA==}
     engines: {node: '>=8.3'}
     hasBin: true
 
@@ -482,6 +482,14 @@ packages:
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
+
+  import-cwd@3.0.0:
+    resolution: {integrity: sha512-4pnzH16plW+hgvRECbDWpQl3cqtvSofHWh44met7ESfZ8UZOWWddm8hEyDTqREJ9RbYHY8gi8DqmaelApoOGMg==}
+    engines: {node: '>=8'}
+
+  import-from@3.0.0:
+    resolution: {integrity: sha512-CiuXOFFSzkU5x/CR0+z7T91Iht4CXgfCxVOFRhh2Zyhg5wOpWvvDLQUsWl+gcN+QscYBjez8hDCt85O7RLDttQ==}
+    engines: {node: '>=8'}
 
   is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
@@ -998,10 +1006,11 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
-  auto-changelog@2.4.0:
+  auto-changelog@2.5.0:
     dependencies:
       commander: 7.2.0
       handlebars: 4.7.8
+      import-cwd: 3.0.0
       node-fetch: 2.7.0
       parse-github-url: 1.0.3
       semver: 7.6.3
@@ -1147,6 +1156,14 @@ snapshots:
       uglify-js: 3.19.0
 
   human-signals@2.1.0: {}
+
+  import-cwd@3.0.0:
+    dependencies:
+      import-from: 3.0.0
+
+  import-from@3.0.0:
+    dependencies:
+      resolve-from: 5.0.0
 
   is-binary-path@2.1.0:
     dependencies:
