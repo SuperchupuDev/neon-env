@@ -1,9 +1,9 @@
 {
   "name": "neon-env",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Typed env parser",
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "changelog": "auto-changelog -p --commit-limit false",
     "check": "biome check",
     "format": "biome format --write",

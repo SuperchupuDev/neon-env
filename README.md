@@ -1,5 +1,7 @@
 # neon-env
 
+## Merged with [typed-env](https://www.npmjs.com/package/typed-env), development will continue there, use that instead.
+
 > Basically [typed-env](https://www.npmjs.com/package/typed-env), but with support for choices and maintained.
 
 A typed environment variable parser with support for choices, custom parsers, and more.
