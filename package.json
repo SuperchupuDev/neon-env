@@ -9,7 +9,7 @@
     "format": "biome format --write",
     "lint": "biome lint",
     "lint:fix": "biome lint --fix --unsafe",
-    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "test": "node --test",
     "typecheck": "tsc"
   },
   "main": "dist/index.js",
@@ -44,11 +44,11 @@
   },
   "homepage": "https://github.com/SuperchupuDev/neon-env#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/node": "^22.1.0",
-    "auto-changelog": "^2.4.0",
-    "tsup": "^8.2.1",
-    "typescript": "^5.5.4"
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.15.21",
+    "auto-changelog": "^2.5.0",
+    "tsdown": "^0.12.3",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
@@ -57,5 +57,5 @@
     "access": "public",
     "provenance": true
   },
-  "packageManager": "pnpm@9.7.0"
+  "packageManager": "pnpm@10.11.0"
 }
